@@ -1,0 +1,1 @@
+web: gunicorn heroloapi.wsgi --log-file -
