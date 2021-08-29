@@ -30,6 +30,7 @@ def all_messages(request):
         serialze_sender = "You did not send any message"
     else:
         serialze_sender = {"All the messages you sent" : MessageSerializer(send_messages, many=True).data}
+    
 
     content = [serialze_reciever,serialze_sender]
     return Response(content)
@@ -63,7 +64,8 @@ def write_message(request):
         else:
             serializer.save() 
             return Response(f"{serializer.data} has been sent successfuly")
-    return Response(f"{serializer.data} your message reciever does not exist")
+    
+    return Response(f"Know where you come from and where are you going ")
    
 @api_view(['GET'])
 def read_message(request, pk):
